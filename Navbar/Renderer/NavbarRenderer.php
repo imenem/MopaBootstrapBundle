@@ -61,7 +61,7 @@ class NavbarRenderer
             if ($formType && $formType instanceof NavbarFormInterface) {
                 $navbar->setFormType($key, $formType);
                 $form = $this->container->get('form.factory')->create($formType);
-                $form->bindRequest($this->container->get('request'));
+                $form->bind($this->container->get('request'));
                 $navbar->setFormView($key, $form->createView());
             } else {
                 throw new \Exception("Form Type Created ". $formTypeString . " is not a NavbarFormInterface");
